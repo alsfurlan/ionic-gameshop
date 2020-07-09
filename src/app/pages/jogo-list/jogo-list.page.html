@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Lista de jogos</ion-title>
+    <ion-title>
+      Lista de jogos
+    </ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="game-controller" slot="start"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +29,7 @@
       <ion-label>Jogos disponíveis</ion-label>
     </ion-list-header>
 
-    <ion-item-sliding *ngFor="let jogo of jogos">
+    <ion-item-sliding *ngFor="let jogo of jogos" #itemSliding>
       <ion-item>
         <ion-avatar slot="start">
           <img [src]="jogo.logo" />
@@ -43,7 +52,7 @@
       </ion-item>
 
       <ion-item-options side="start">
-        <ion-item-option color="primary">
+        <ion-item-option color="primary" (click)="editar(jogo, itemSliding)">
           <ion-icon slot="icon-only"
                     name="pencil"></ion-icon>
         </ion-item-option>

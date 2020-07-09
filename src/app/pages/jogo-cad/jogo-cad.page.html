@@ -1,9 +1,82 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>jogo-cad</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Cadastro de Jogos
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="game-controller"
+                  slot="start"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-list>
+
+    <ion-item>
+      <ion-label position="stacked">Nome do Jogo</ion-label>
+      <ion-input autofocus="true"
+                 inputmode="text"
+                 maxlength="100"
+                 required="true"
+                 type="text"
+                 [(ngModel)]="jogo.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Preço</ion-label>
+      <ion-input autofocus="true"
+                 inputmode="decimal"
+                 min="0"
+                 required="true"
+                 type="number"
+                 [(ngModel)]="jogo.preco"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data de Lançamento</ion-label>
+      <ion-input autofocus="true"
+                 type="date"
+                 required="true"
+                 [(ngModel)]="jogo.lancamento"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Gênero</ion-label>
+      <ion-select cancelText="Cancelar"
+                  okText="Selecionar"
+                  interface="alert"
+                  [(ngModel)]="jogo.genero">
+
+        <ion-select-option value="RPG">RPG</ion-select-option>
+        <ion-select-option value="FPS">FPS</ion-select-option>
+        <ion-select-option value="Esporte">Esporte</ion-select-option>
+        <ion-select-option value="Aventura">Aventura</ion-select-option>
+        <ion-select-option value="Corrida">Corrida</ion-select-option>
+        <ion-select-option value="Ludico">Lúdico</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Logo</ion-label>
+      <ion-input inputmode="url"
+                 type="url"
+                 placeholder="http://...."
+                 [(ngModel)]="jogo.logo"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom"
+           horizontal="end">
+    <ion-fab-button (click)="salvar()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

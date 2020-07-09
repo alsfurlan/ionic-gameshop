@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'jogo-cad',
     loadChildren: () => import('./pages/jogo-cad/jogo-cad.module').then( m => m.JogoCadPageModule)
+  },
+  {
+    path: 'jogo-cad/:id',
+    loadChildren: () => import('./pages/jogo-cad/jogo-cad.module').then( m => m.JogoCadPageModule)
   }
 ];
 

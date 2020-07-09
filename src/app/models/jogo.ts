@@ -1,8 +1,8 @@
 export interface Jogo {
-    id: number;
+    id?: number;
     nome: string;
     preco: number;
-    lancamento: Date;
+    lancamento: string;
     genero: string;
     logo: string;
 }
